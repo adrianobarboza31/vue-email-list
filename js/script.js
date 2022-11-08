@@ -1,0 +1,18 @@
+const{createApp}=Vue;
+createApp({
+    data(){
+        return{
+            mailRandom:[]
+        }
+    },
+    methods:{
+        callApi(){
+            for(i=0;i<10;i++){
+                axios.get("https://flynn.boolean.careers/exercises/api/random/mail").then((res)=>{
+                    this.mailRandom.push(res.data.response)
+                })
+            }
+           console.log(this.mailRandom)
+        }
+    },
+}).mount("#app")
